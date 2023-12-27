@@ -10,7 +10,7 @@ import com.vaadin.flow.server.StreamResource;
 import jakarta.annotation.security.PermitAll;
 
 @PermitAll
-@Route(value = "bookviewer"/*, layout = MainLayout.class*/) // <1>
+@Route(value = "bookviewer", layout = MainLayout.class) // <1>
 @PageTitle("Bookviewer | Vaadin CRM")
 public class BookView extends VerticalLayout {
 

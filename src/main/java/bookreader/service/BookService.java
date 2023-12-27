@@ -16,7 +16,7 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public List<Book> findAllContacts(String stringFilter) {
+    public List<Book> findAllBooks(String stringFilter) {
         if (stringFilter == null || stringFilter.isEmpty()) {
             return bookRepository.findAll();
         } else {

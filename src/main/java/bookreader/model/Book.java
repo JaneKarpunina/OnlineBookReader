@@ -13,9 +13,10 @@ public class Book {
     public static final String SEQUENCE_NAME = "books_sequence";
 
     @Id
-    Long id;
+    long id;
 
-
+    public Book() {
+    }
     public Book(String title, String author, String link, String comment) {
         this.title = title;
         this.author = author;
