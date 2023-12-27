@@ -6,6 +6,7 @@ import bookreader.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -14,6 +15,10 @@ public class BookService {
 
     BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
+    }
+
+    public Optional<Book> find(long id) {
+        return bookRepository.findById(id);
     }
 
     public List<Book> findAllBooks(String stringFilter) {

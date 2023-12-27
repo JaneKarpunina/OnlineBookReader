@@ -2,8 +2,10 @@ package bookreader.view.list;
 
 import bookreader.model.Book;
 import bookreader.service.BookService;
+import bookreader.view.BookView;
 import bookreader.view.MainLayout;
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -12,6 +14,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteParameters;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import jakarta.annotation.security.PermitAll;
 import org.springframework.context.annotation.Scope;
@@ -72,6 +75,10 @@ public class ListView extends VerticalLayout {
     }
 
     private void openFile(BookForm.OpenEvent event) {
+
+        getUI().ifPresent(ui -> ui.navigate(
+                BookView.class,
+                new RouteParameters("id", String.valueOf(event.getBook().getId()))));
 
     }
 
