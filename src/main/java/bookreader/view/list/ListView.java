@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Scope;
 @Scope("prototype")
 @PermitAll
 @Route(value = "", layout = MainLayout.class)
-@PageTitle("Contacts | Vaadin CRM")
+@PageTitle("Books | Book Reader")
 public class ListView extends VerticalLayout {
     Grid<Book> grid = new Grid<>(Book.class);
     TextField filterText = new TextField();
@@ -36,7 +36,7 @@ public class ListView extends VerticalLayout {
 
         add(getToolbar(), getContent());
 
-        fillGrid();
+        //fillGrid();
         updateList();
         closeEditor();
     }
@@ -90,12 +90,12 @@ public class ListView extends VerticalLayout {
     }
 
     private Component getToolbar() {
-        filterText.setPlaceholder("Filter by name...");
+        filterText.setPlaceholder("Filter by title...");
         filterText.setClearButtonVisible(true);
         filterText.setValueChangeMode(ValueChangeMode.LAZY);
         filterText.addValueChangeListener(e -> updateList());
 
-        Button addContactButton = new Button("Add contact");
+        Button addContactButton = new Button("Add book");
         addContactButton.addClickListener(click -> addBook());
 
         var toolbar = new HorizontalLayout(filterText, addContactButton);

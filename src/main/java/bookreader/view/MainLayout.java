@@ -1,12 +1,15 @@
 package bookreader.view;
 
 import bookreader.security.SecurityService;
+import bookreader.view.list.ListView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
 public class MainLayout extends AppLayout {
@@ -16,11 +19,11 @@ public class MainLayout extends AppLayout {
     public MainLayout(SecurityService securityService) {
         this.securityService = securityService;
         createHeader();
-        //createDrawer();
+        createDrawer();
     }
 
     private void createHeader() {
-        H1 logo = new H1("Vaadin CRM");
+        H1 logo = new H1("Book Reader");
         logo.addClassNames(
                 LumoUtility.FontSize.LARGE,
                 LumoUtility.Margin.MEDIUM);
@@ -39,5 +42,12 @@ public class MainLayout extends AppLayout {
 
         addToNavbar(header);
 
+    }
+
+    private void createDrawer() {
+        addToDrawer(new VerticalLayout(
+                new RouterLink("List", ListView.class),
+                new RouterLink("Reader", BookView.class)
+        ));
     }
 }
