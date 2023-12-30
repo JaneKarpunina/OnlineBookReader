@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class BookService {
 
-    BookRepository bookRepository;
+    final BookRepository bookRepository;
 
     BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;

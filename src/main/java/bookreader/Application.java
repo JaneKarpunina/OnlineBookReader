@@ -1,6 +1,7 @@
 package bookreader;
 
 import bookreader.model.Book;
+import bookreader.repository.UserRepository;
 import bookreader.service.BookService;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
